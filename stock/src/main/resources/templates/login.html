@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+<link rel="stylesheet" th:href="@{/css/style.css}">
+				
+
+  </head>
+	
+  <body style="background-color:oldlace">
+	<div th:replace="~{fragments/navbar:: topNavbar}">
+						<p>Default local static navbar preview...</p>
+					</div>
+					<br><br><br><br><br><br><br><br><br><br><br><br>
+	<form method="post" th:action="@{/login}" th:object="${loginDto}">
+		<h1 style= "margin-left: 120px;">
+		<span style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; color:black;font-size:100%;"> </span></h1>
+		<p th:if="${message}" th:text="${message}" style="text-align: center;margin-top: 80px; font-family:Arial, Helvetica, sans-serif;color:red;font-size: 150%;"><br><br></p>
+
+		
+		
+	  <div style="text-align: center; margin-bottom: 20px;">
+	    <label for="InputUsername1" class="form-label"><span style="font-family: Georgia, 'Times New Roman', Times, serif;color:Maroon;font-size:150%;">Username</span> 
+		</label>
+
+	    <input th:field="*{username}" type="text" class="form-control" id="InputUsername1" aria-describeby="userHelp">
+		<br><br>
+		<span style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;color:black;font-size:100%;">Please enter your username.</span> 
+
+	  <div style="white-space:pre;">
+	  			
+	  		</div>
+	  <div style="text-align: center; margin-bottom: 20px;">
+	    <label for="InputPassword1" class="form-label"><span style="font-family: Georgia, 'Times New Roman', Times, serif;color:Maroon;font-size:150%;">Password</span> </label>
+	    </label><input th:field="*{password}" type="password" class="form-control" id="InputPassword1" aria-describeby="passHelp">
+		<br><br>
+		<span style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;color:black;font-size:100%;">Please enter your password.</span> 
+		<div style="white-space:pre;">
+					
+				</div>
+	  </div>
+<div class="center container">
+	<button style="background-color: white; color: maroon; border:3px dotted maroon; padding: 10px 20px;	font-family: Georgia, 'Times New Roman', Times, serif">
+		
+	  Login
+	</button>
+
+
+	</form>    
+	
+  </body>
+</html>

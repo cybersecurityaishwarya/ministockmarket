@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta  charset="UTF-8">
+		<title>Home</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" th:href="@{/css/style.css}">
+	</head>
+	<div th:replace="~{fragments/navbar:: topNavbar}">
+					<p>Default local static navbar preview...</p>
+				</div>
+	<body style="background-color: oldlace;">
+		
+			
+						 			 				
+						 			 			
+						 
+		<div class="center-container" style="text-align: center;">
+			
+		<h1> <span th:text="'Welcome to '+${name}"  style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; color:maroon;font-size:120%;"> </span></h1>
+		
+	<h1> <span style="font-family:'Times New Roman', Times, serif; color:black;font-size:50%;">Aishwarya Bali</span></h1>
+</div>
+</script>
+				<!--<div class="d-flex justify-content-center my-4">
+					<table class="table table-dark table-striped w-auto text-center" style="caption-side:top;">
+						<caption class="text-center text-dark fw-bold fs-4" style="caption-side:top;">Trending Stocks</caption>
+
+
+						<tr>
+							<th>Company</th>
+							<th>Symbol</th>
+							<th>Price</th>
+							<th>Change</th>
+							<th>ChangePercent</th>
+
+						</tr>
+						<tbody id="stockTable">
+						</tbody>
+						</table>
+						</div>
+							<script>	
+							fetch("/springboot/stock/trending").then(response=>response.json()).then(data=>{ let stocks="";
+								for (let i=0; i<data.length;i++){
+									stocks +="<tr>";
+									stocks += "<td>" +data[i].companyName + "</td>";
+									stocks += "<td>"+data[i].symbol + "</td>";
+									stocks += "<td>$"+data[i].marketPrice + "</td>";
+									stocks += "<td>"+data[i].marketChange + "</td>";
+									stocks += "<td>"+data[i].marketChangePercent + "%</td>";
+									stocks +="</tr>";
+								}
+								document.getElementById("stockTable").innerHTML=stocks;
+							});
+						</script>-->
+						 
+						 			 			
+<div
+tabindex="0"	
+onkeydown="if(event.key==='Enter'|| event.key===' '|| event.key==='ArrowRight'){
+		window.location.href='/register';}"></div>
+	
+	</body>
+	</html>

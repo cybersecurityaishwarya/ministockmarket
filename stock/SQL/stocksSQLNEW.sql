@@ -1,0 +1,89 @@
+-- Create table Account(
+-- UserID INT PRIMARY KEY,
+-- Username VARCHAR(20),
+-- Password VARCHAR(32), 
+-- Email VARCHAR(254)
+-- );
+-- create table Portfolio(
+-- PortfolioID INT PRIMARY KEY, 
+-- Quantity INT,
+-- UserID INT,
+-- FOREIGN KEY (UserID) REFERENCES Account(UserID)
+-- );
+-- Create TABLE StocksHolding(
+-- StocksHoldingID INT primary key,
+-- CompanyTicker VARCHAR(5), 
+-- CompanyName VARCHAR(200), 
+-- PurchasePrice decimal(19,4),
+-- TradeActions Varchar(100),
+-- UserID INT, 
+-- Foreign key (UserID) REFERENCES Account(UserID),
+-- PortfolioID INT, 
+-- Foreign Key (PortfolioID) REFERENCES Portfolio(PortfolioID)
+-- );-- 
+-- Alter table Stocksholding DROP COLUMN CompanyName
+-- Alter table stocksholding add constraint CompanyTicker_ForKey  foreign key (CompanyTicker) References stocks(CompanyTicker)
+-- Create table Trade(
+-- TradeID INT PRIMARY KEY,
+-- CompanyTicker VARCHAR(5),
+-- CompanyName VARCHAR(200),
+-- StockPrice DECIMAL(19,4),
+-- Action_ VARCHAR(15),
+-- Quantity INT, 
+-- OrderType VARCHAR(20), 
+-- Duration VARCHAR(50),
+-- UserID INT,
+-- FOREIGN KEY (UserID) REFERENCES Account(UserID),
+-- PortfolioID INT,
+-- FOREIGN KEY (PortfolioID) REFERENCES Portfolio(PortfolioID),
+-- StocksHoldingID INT, 
+-- FOREIGN KEY (StocksHoldingID) References StocksHolding(StocksHoldingID)
+-- );
+-- Alter table Trade DROP COLUMN CompanyTicker ; Alter table trade DROP Column CompanyName
+--  Alter table Trade add constraint CompanyTicker_FKey  foreign key (CompanyTicker) References stocks(CompanyTicker)
+
+-- Create table  OrderDetails(
+-- OrderID INT PRIMARY KEY,
+-- Transaction_ VARCHAR(60), 
+-- CompanyTicker VARCHAR(5),
+-- Quantity INT, 
+-- Duration VARCHAR(50),
+-- StockPrice DECIMAL(19,4),
+-- TradeID INT,
+-- FOREIGN KEY (TradeID) References Trade(TradeID),
+-- UserID INT,
+-- FOREIGN KEY (UserID) REFERENCES Account(UserID),
+-- PortfolioID INT,
+-- FOREIGN KEY (PortfolioID) REFERENCES Portfolio(PortfolioID),
+-- StocksHoldingID INT, 
+-- FOREIGN KEY (StocksHoldingID) References StocksHolding(StocksHoldingID)
+-- );
+-- Alter table OrderDetails DROP COLUMN CompanyTicker
+--  Alter table OrderDetails add constraint CompanyTicker_FK  foreign key (CompanyTicker) References stocks(CompanyTicker)
+
+-- Create table Transaction(
+-- TransactionID INT PRIMARY KEY,
+-- OrderDateTime Date,
+-- CompanyTicker VARCHAR(5),
+-- Status_ VARCHAR(100),
+-- Transaction VARCHAR(60),
+-- Quantity INT, 
+-- PurchasePrice Decimal(19,4),
+-- Action_ VARCHAR(15),
+-- OrderID INT, 
+-- FOREIGN KEY (OrderID) REFERENCES OrderDetails(OrderID),
+-- TradeID INT,
+-- FOREIGN KEY (TradeID) References Trade(TradeID),
+-- UserID INT,
+-- FOREIGN KEY (UserID) REFERENCES Account(UserID),
+-- PortfolioID INT,
+-- FOREIGN KEY (PortfolioID) REFERENCES Portfolio(PortfolioID),
+-- StocksHoldingID INT, 
+-- FOREIGN KEY (StocksHoldingID) References StocksHolding(StocksHoldingID)
+-- );
+-- Alter table Transaction DROP COLUMN CompanyTicker
+-- OK -- Alter table Transaction add Column CompanyTicker Varchar(5); Alter table transaction add constraint CompanyTicker  foreign key (CompanyTicker) References stocks(CompanyTicker)
+-- Create table stocks(
+-- CompanyTicker VARCHAR(5) PRIMARY Key,
+-- CompanyName VARCHAR(200)
+-- );

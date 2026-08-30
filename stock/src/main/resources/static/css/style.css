@@ -1,0 +1,74 @@
+/* Reset default margins and set box sizing */
+*, *::before, *::after {
+  box-sizing: border-box !important;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: oldlace !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+/* Navbar Base Styling */
+.navbar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 1rem 2rem !important;
+  background-color: #1e293b !important;
+  color: white !important;
+}
+
+.navbar .logo {
+  font-size: 1.25rem !important;
+  font-weight: bold !important;
+}
+
+.navbar ul {
+  display: flex !important; /* Force flex display over Bootstrap rules */
+  flex-direction: row !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 20px !important;
+  align-items: center !important;
+}
+
+.navbar ul li {
+  display: inline-block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.navbar ul li a {
+  text-decoration: none !important;
+  color: #ffffff !important;
+  font-weight: 500 !important;
+}
+
+.navbar ul li a.active {
+  color: #f59e0b !important;
+  border-bottom: 2px solid #f59e0b !important;
+}
+
+/* Table Styling */
+table {
+  width: 80% !important;
+  margin: 20px auto !important;
+  border-collapse: collapse !important;
+}
+
+th, td {
+  padding: 12px 20px !important;
+  text-align: center !important;
+}
+
+th {
+  font-size: 130% !important;
+  border-bottom: 2px solid #333 !important;
+}
+
+td {
+  font-size: 110% !important;
+}

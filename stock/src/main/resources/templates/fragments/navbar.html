@@ -1,0 +1,25 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" th:href="@{/css/style.css}">
+	</head>
+<body>
+	<nav th:fragment="topNavbar" class="navbar">
+		
+		<div class="logo">Mini Stock Market</div>
+		<ul>
+			
+			<li> <a th:href= "@{/home}" th:classappend="${activePage=='index'}? 'active':''">Home</a></li>
+			<li> <a th:href= "@{/login}" th:classappend="${activePage=='login'}? 'active':''">Login</a></li>
+			<!--<li> <a th:href= "@{/orderdetails}">Order Details</a></li>
+			<li> <a th:href= "@{/portfolio}"></a>Portfolio</li>-->
+			<li> <a th:href= "@{/holdings}" th:classappend="${activePage=='stockholding'}? 'active':''">Stocks Holding</a></li>
+	<!--		<li> <a th:href= "@{/trade}"></a>Trade</li>
+			<li> <a th:href= "@{/transaction}"></a>Transaction</li>
+-->
+		</ul>
+		
+	</nav>
+</body>
+
+</html>
