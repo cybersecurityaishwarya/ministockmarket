@@ -30,4 +30,7 @@ public String Login(LoginDto loginDto) {
 		return "Incorrect username or password";
 	
 }
+public Account findByUsername(String username) {
+	return accountRepository.findByUsername(username).orElse(null);
+}
 }

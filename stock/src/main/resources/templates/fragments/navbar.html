@@ -13,7 +13,7 @@
 			<li> <a th:href= "@{/login}" th:classappend="${activePage=='login'}? 'active':''">Login</a></li>
 			<!--<li> <a th:href= "@{/orderdetails}">Order Details</a></li>
 			<li> <a th:href= "@{/portfolio}"></a>Portfolio</li>-->
-			<li> <a th:href= "@{/holdings}" th:classappend="${activePage=='stockholding'}? 'active':''">Stocks Holding</a></li>
+			<li> <a th:href= "@{/holdings/{userID}}" th:classappend="${activePage=='stockholding'}? 'active':''">Stocks Holding</a></li>
 	<!--		<li> <a th:href= "@{/trade}"></a>Trade</li>
 			<li> <a th:href= "@{/transaction}"></a>Transaction</li>
 -->

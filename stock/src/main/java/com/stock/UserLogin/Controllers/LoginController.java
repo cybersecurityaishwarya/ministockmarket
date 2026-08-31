@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.stock.Service.AccountServiceLayer;
 import com.stock.dtos.LoginDto;
+import com.stock.entities.Account;
 
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -30,7 +31,10 @@ public class LoginController {
 		String loginOutput=accountServiceLayer.Login(loginDto);
 		model.addAttribute("message",loginOutput);
 		if(loginOutput.equals("Welcome back!")) {
-			return "redirect:/holdings" ;
+	
+			Account loggedIn=accountServiceLayer.findByUsername(loginOutput);
+			int userID=loggedIn.getUserID();
+			return "redirect:/holdings/"+ userID ;
 		}
 		return "login";
 	}

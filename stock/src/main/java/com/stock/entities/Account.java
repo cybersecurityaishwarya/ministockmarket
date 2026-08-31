@@ -28,6 +28,9 @@ public class Account {
 @GeneratedValue(strategy=GenerationType.IDENTITY)
 @Column(name="UserID",nullable=false)
 private int userID;
+public int getUserID() {
+	return userID;
+}
 
 //@GeneratedValue(strategy=GenerationType.IDENTITY) // we cant use that for non pk
 
@@ -41,3 +44,4 @@ private String password;
 @OneToMany(mappedBy="account", orphanRemoval=true, cascade=CascadeType.ALL)
 private List<StockHolding> stockHolding;
 }
+
