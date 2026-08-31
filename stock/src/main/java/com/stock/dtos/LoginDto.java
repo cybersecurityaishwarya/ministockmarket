@@ -10,7 +10,7 @@ public class LoginDto {
 	private String username;
 	
 	
-	@Size(min=4,max=32, message= "Password must be between 4 and 32 characters.")
+	@Size(min=0, message= "Password must be greater than 0 characters.")
 	private String password;	
 	
 

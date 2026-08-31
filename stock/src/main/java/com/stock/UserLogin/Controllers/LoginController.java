@@ -32,7 +32,7 @@ public class LoginController {
 		model.addAttribute("message",loginOutput);
 		if(loginOutput.equals("Welcome back!")) {
 	
-			Account loggedIn=accountServiceLayer.findByUsername(loginOutput);
+			Account loggedIn=accountServiceLayer.findByUsername(loginDto.getUsername());
 			int userID=loggedIn.getUserID();
 			return "redirect:/holdings/"+ userID ;
 		}
