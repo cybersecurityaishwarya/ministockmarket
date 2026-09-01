@@ -33,4 +33,7 @@ public String Login(LoginDto loginDto) {
 public Account findByUsername(String username) {
 	return accountRepository.findByUsername(username).orElse(null);
 }
+public Account addUser(Account account) {
+	return accountRepository.save(account);
+}
 }
