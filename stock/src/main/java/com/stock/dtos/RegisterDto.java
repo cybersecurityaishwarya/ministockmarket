@@ -4,7 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
-public class RegisterDro {
+public class RegisterDto {
 
 	@NotBlank(message="Please enter username.")
 	private String username;

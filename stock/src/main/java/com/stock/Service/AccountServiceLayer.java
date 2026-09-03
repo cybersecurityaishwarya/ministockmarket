@@ -4,6 +4,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.stock.dtos.LoginDto;
+import com.stock.dtos.RegisterDto;
 import com.stock.entities.Account;
 import com.stock.repositories.AccountRepository;
 
@@ -33,7 +34,21 @@ public String Login(LoginDto loginDto) {
 public Account findByUsername(String username) {
 	return accountRepository.findByUsername(username).orElse(null);
 }
-public Account addUser(Account account) {
-	return accountRepository.save(account);
+public void addUser(RegisterDto registerDto) {
+	if(accountRepository.findByUsername(registerDto.getUsername()).isPresent()){
+		throw new IllegalArgumentException("Username is already taken.");
+	}
+	Account registerAccount= Account.builder().username(registerDto.getUsername()).password(registerDto.getPassword()).build();
+	
+	accountRepository.save(registerAccount
+					
+			
+			
+			
+			
+			
+			
+			
+			);
 }
 }

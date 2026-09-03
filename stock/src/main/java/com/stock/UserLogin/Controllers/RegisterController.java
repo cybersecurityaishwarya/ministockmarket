@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.stock.Service.AccountServiceLayer;
+import com.stock.dtos.RegisterDto;
 
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -29,6 +30,14 @@ public class RegisterController {
 		if(result.hasErrors()) {
 			return "register";
 		}
-		
+		try {
+			accountServiceLayer.addUser(registerDto);
+			return "redirect:/register";
+		}
+		catch(IllegalArgumentException a){
+			model.addAttribute("message",a.getMessage());
+			return "register";
+			
+		}
 	}
 }
