@@ -40,15 +40,6 @@ public void addUser(RegisterDto registerDto) {
 	}
 	Account registerAccount= Account.builder().username(registerDto.getUsername()).password(registerDto.getPassword()).build();
 	
-	accountRepository.save(registerAccount
-					
-			
-			
-			
-			
-			
-			
-			
-			);
+	accountRepository.save(registerAccount);
 }
 }
