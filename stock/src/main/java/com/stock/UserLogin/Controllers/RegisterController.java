@@ -32,7 +32,7 @@ public class RegisterController {
 		}
 		try {
 			accountServiceLayer.addUser(registerDto);
-			return "redirect:/register";
+			return "login";
 		}
 		catch(IllegalArgumentException a){
 			model.addAttribute("message",a.getMessage());
