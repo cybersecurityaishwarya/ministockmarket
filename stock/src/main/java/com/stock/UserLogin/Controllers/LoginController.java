@@ -29,7 +29,7 @@ public class LoginController {
 	}
 	
 	@PostMapping
-	public String login(@Valid @ModelAttribute LoginDto loginDto, Model model, BindingResult result) {
+	public String login(@Valid @ModelAttribute LoginDto loginDto, BindingResult result, Model model) {
 		if(result.hasErrors()) {
 			return "login";
 		}

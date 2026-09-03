@@ -26,13 +26,13 @@ public class RegisterController {
 	}
 	@PostMapping
 	//the valid makes it so it checks my DTO criterias... before accepting it
-	public String register(@Valid @ModelAttribute RegisterDto registerDto, Model model, BindingResult result) {
+	public String register(@Valid @ModelAttribute RegisterDto registerDto, BindingResult result,Model model) {
 		if(result.hasErrors()) {
 			return "register";
 		}
 		try {
 			accountServiceLayer.addUser(registerDto);
-			return "login";
+			return "redirect:/login";
 		}
 		catch(IllegalArgumentException a){
 			model.addAttribute("message",a.getMessage());
