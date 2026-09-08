@@ -4,9 +4,12 @@ import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,7 +34,7 @@ public class Transaction {
 	@Column(name="Status")
 	private String status;
 	@Column(name="Transaction")
-	private String transaction;
+	private String transactionCol;
 	@Column(name="Quantity")
 	private int quantity;
 	@Column(name="PurchasePrice")
@@ -42,4 +45,10 @@ public class Transaction {
 	private int userID;
 	@Column(name="CompanyTicker")
 	private String companyTicker;
-}
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="userID",nullable=false)
+	private Transaction transaction;
+
+	}
+
