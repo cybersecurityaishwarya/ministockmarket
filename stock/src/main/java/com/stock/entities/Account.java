@@ -43,5 +43,8 @@ private String password;
 
 @OneToMany(mappedBy="account", orphanRemoval=true, cascade=CascadeType.ALL)
 private List<StockHolding> stockHolding;
+
+@OneToMany(mappedBy="account", orphanRemoval=true, cascade=CascadeType.ALL)
+private List<TransactionHistory> transaction;
 }
 
