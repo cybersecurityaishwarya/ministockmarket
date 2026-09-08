@@ -1,5 +1,5 @@
 package com.stock.UserLogin;
 
-public class Transaction {
+public class TransactionHis {
 
 }
