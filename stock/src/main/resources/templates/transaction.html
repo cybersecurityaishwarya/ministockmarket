@@ -1,24 +1,75 @@
-<!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-	body{
-		font-family: 'Courier New', Courier, monospace;
-	}
-  
-  </style>
-  <link rel="stylesheet" th:href="@{/css/style.css}">
-  </head>
-  <body style="background-color:oldlace">
-	<form method="post" th:action="@{/login}" th:object="${loginDto}">
-		<h1 style= "margin-left: 120px;">
-		<span style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; color:black;font-size:100%;">welcome to transaction</span></h1>
-		<p th:if="${message}" th:text="${message}" style="text-align: center;margin-top: 80px; font-family:Arial, Helvetica, sans-serif;color:red;font-size: 150%;"></p>
-
-		</form>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Transaction History</title>
+		<link rel="stylesheet" th:href="@{/css/style.css}">
+	</head>
+	<div th:replace="~{fragments/navbar:: topNavbar}">
+							<p>Default local static navbar preview...</p>
+						</div>
+	<body>
 		
+		<style>		body{
+			background-color:lightgray;
+		}</style>
 
-  </body>
+		<meta charset="UTF-8">
+		<br><br><br><br><br><br><br><br>
+
+		<div align="center">
+			<h1><span style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:170%";>Transaction History List</span></h1>
+			<br><br><br>
+			<style> table{
+				border-collapse: separate;
+				border-spacing: 0 80px;
+			}</style>
+			<table>
+				<style>
+				    th {
+				        padding: 8px 50px;
+				    }
+				</style>
+				<style>
+					th{
+						font-size: 170%;}
+
+				</style>
+				<thead>
+					<tr>
+						<th>Order Date</th>
+						<th>Status</th>
+						<th>Transaction</th>
+						<th>Quantity</th>
+
+						<th>Purchase Price</th>
+						<th>Actions</th>
+						<th>Company Name</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+
+					<span style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif";>
+					    
+					</style>
+					<span style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:120%";>
+										
+
+									</style>
+					<tr th:each="transactionHistory:${listTransactionHistory}">
+						<td> <span th:text="${transactionHistory.orderDate}" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 140%;"></span></td>
+						<td> <span th:text="${transactionHistory.status}" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 140%;"></span></td>
+						<td> <span th:text="${transactionHistory.transaction}" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 140%;"></span></td>
+						<td><span th:text="${transactionHistory.quantity}"style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 140%;"></span></td>
+						<td><span th:text="${transactionHistory.purchasePrice}"style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 140%;"></span></td>
+
+						<td><span th:text="${transactionHistory.action}"style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 140%;"></span></td>
+						<td><span th:text="${transactionHistory.companyTicker}"style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 140%;"></span></td>
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+	</body>
 </html>

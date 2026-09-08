@@ -1,5 +1,11 @@
 package com.stock.Service;
 
-public class TransactionHistoryServiceLayer {
+import java.util.List;
+
+import com.stock.entities.TransactionHistory;
+
+
+public interface TransactionHistoryServiceLayer {
+	List<TransactionHistory> getTransactionHistoryByUserId(int userID);
 
 }
