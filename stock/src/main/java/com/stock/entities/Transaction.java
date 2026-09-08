@@ -34,7 +34,7 @@ public class Transaction {
 	@Column(name="Status")
 	private String status;
 	@Column(name="Transaction")
-	private String transactionCol;
+	private String transaction;
 	@Column(name="Quantity")
 	private int quantity;
 	@Column(name="PurchasePrice")
@@ -48,7 +48,7 @@ public class Transaction {
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="userID",nullable=false)
-	private Transaction transaction;
+	private Account account;
 
 	}
 
